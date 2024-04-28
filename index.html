@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exemplos JavaScript</title>
+</head>
+<body>
+
+<!-- Exemplo 1: Mensagem de 'Olá Mundo' -->
+<p id="helloWorld"></p>
+
+<!-- Exemplo 2: Calculadora -->
+<h2>Calculadora de Soma</h2>
+<label for="num1">Digite o primeiro número:</label>
+<input type="number" id="num1">
+
+<label for="num2">Digite o segundo número:</label>
+<input type="number" id="num2">
+
+<button onclick="calculateSum()">Calcular Soma</button>
+
+<!-- Local para mostrar o resultado da calculadora -->
+<p id="sumResult"></p>
+
+<!-- Exemplo 3: Alterar propriedade de um elemento por id -->
+<button id="changeByIdBtn">Alterar Propriedade por ID</button>
+
+<!-- Exemplo 4: Alterar propriedade de um elemento por name -->
+<input type="text" name="exampleInput" value="Valor Inicial" id="exampleInputName">
+<button onclick="changeByName()">Alterar Propriedade por Name</button>
+
+<!-- Exemplo 5: Alterar propriedade de um elemento por class -->
+<p class="exampleClass">Exemplo de Classe</p>
+<button onclick="changeByClass()">Alterar Propriedade por Classe</button>
+
+<script>
+  // Exemplo 1: Mensagem de 'Olá Mundo'
+  document.getElementById('helloWorld').innerText = 'Olá Mundo';
+
+  // Exemplo 2: Calculadora
+  function calculateSum() {
+    var num1 = parseFloat(document.getElementById('num1').value);
+    var num2 = parseFloat(document.getElementById('num2').value);
+    
+    if (isNaN(num1) || isNaN(num2)) {
+      document.getElementById('sumResult').innerText = 'Por favor, digite números válidos.';
+    } else {
+      var sum = num1 + num2;
+      document.getElementById('sumResult').innerText = 'A soma de ' + num1 + ' e ' + num2 + ' é ' + sum + '.';
+    }
+  }
+
+  // Exemplo 3: Alterar propriedade de um elemento por id
+  document.getElementById('changeByIdBtn').addEventListener('click', function() {
+    document.getElementById('helloWorld').style.color = 'blue';
+  });
+
+  // Exemplo 4: Alterar propriedade de um elemento por name
+  function changeByName() {
+    document.getElementsByName('exampleInput')[0].value = 'Novo Valor';
+  }
+
+  // Exemplo 5: Alterar propriedade de um elemento por class
+  function changeByClass() {
+    var elements = document.getElementsByClassName('exampleClass');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.fontWeight = 'bold';
+    }
+  }
+</script>
+
+</body>
+</html>
